@@ -64,11 +64,17 @@ const ProductCart: React.FC<ProductCartProps> = ({
       <div className="flex font-workSans">
         <NavLink to={`/store/${parentCategoryRoute}/${category}/${_id}`}>
           <div className="h-40 mb-3 md:h-40 md:w-32 flex items-center justify-center overflow-hidden hover:cursor-pointer">
-            <img
-              className="object-cover w-full h-full"
-              src={images[0]}
-              alt=""
-            />
+            {images && images.length > 0 ? (
+              <img
+                className="object-cover w-full h-full"
+                src={images[0]}
+                alt=""
+              />
+            ) : (
+              <div className="w-full h-full bg-gray-300 flex items-center justify-center">
+                <span className="text-gray-500">No Image</span>
+              </div>
+            )}
           </div>
         </NavLink>
         <div className="py-1 px-3 flex flex-col justify-between">

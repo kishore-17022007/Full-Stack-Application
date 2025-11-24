@@ -39,6 +39,11 @@ const Order: React.FC<OrderPropsType> = ({ order }) => {
   useEffect(() => {
     const fetchProductDetails = async () => {
       try {
+        if (!order.products || order.products.length === 0) {
+          setProducts([])
+          return
+        }
+
         const productDetails = await Promise.all(
           order.products.map(async (product) => {
             const productDetailResponse = await fetch(
@@ -108,7 +113,7 @@ const Order: React.FC<OrderPropsType> = ({ order }) => {
         </div>
         <div className="p-5 flex gap-5 rounded-lg border border-gray-300">
           <div className="w-3/4">
-            {products && (
+            {products && products.length > 0 ? (
               <div className="flex flex-col gap-1">
                 {products.map((product, index) => {
                   return (
@@ -120,6 +125,8 @@ const Order: React.FC<OrderPropsType> = ({ order }) => {
                   )
                 })}
               </div>
+            ) : (
+              <div className="text-gray-500">Loading products...</div>
             )}
           </div>
           <div className="w-1/4 pr-2 flex mt-1 mb-3 items-end justify-between flex-col">

@@ -275,11 +275,15 @@ const Order: React.FC<OrderPropsType> = ({ order }) => {
                     </div>
                     <div className="col-span-4 flex items-center gap-2">
                       <div className="h-14 w-12 flex items-center justify-center overflow-hidden rounded-md">
-                        <img
-                          className="object-cover w-full h-full"
-                          src={product.images[0]}
-                          alt=""
-                        />
+                        {product.images && product.images.length > 0 ? (
+                          <img
+                            className="object-cover w-full h-full"
+                            src={product.images[0]}
+                            alt=""
+                          />
+                        ) : (
+                          <div className="bg-gray-200 w-full h-full"></div>
+                        )}
                       </div>
                       <div>{product.title}</div>
                     </div>

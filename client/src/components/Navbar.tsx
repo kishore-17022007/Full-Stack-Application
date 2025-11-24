@@ -22,27 +22,6 @@ function Navbar() {
       </div>
       <div className="flex gap-9 items-center">
         <ul className="flex gap-4">
-          <li>
-            <a href="/">APIs</a>
-          </li>
-          <li>
-            <a
-              href="https://github.com/Ktn-mariam/FarmFresh-Finder"
-              target="_blank"
-              rel="noreferrer"
-            >
-              GitHub
-            </a>
-          </li>
-          <li>
-            <a
-              href="https://www.linkedin.com/in/mariamkhatoon/"
-              target="_blank"
-              rel="noreferrer"
-            >
-              LinkedIn
-            </a>
-          </li>
         </ul>
         <ul className="flex gap-4 items-center">
           <li>
